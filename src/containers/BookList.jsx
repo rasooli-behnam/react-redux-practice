@@ -4,15 +4,17 @@ import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
+import { selectBook } from "../actions/index";
+
 class BookList extends Component {
   render() {
-    const { books, classes } = this.props;
+    const { classes, books, selectBook } = this.props;
 
     return (
       <List className={classes.list}>
         {books.map(book => {
           return (
-            <ListItem key={book.title} button>
+            <ListItem key={book.title} button onClick={() => selectBook(book)}>
               {book.title}
             </ListItem>
           );
@@ -31,12 +33,17 @@ const styles = {
   }
 };
 
-function mapAppStateToProps(appState) {
-  return {
-    books: appState.books
-  };
-}
-
 const BookListWithStyles = withStyles(styles)(BookList);
 
-export default connect(mapAppStateToProps)(BookListWithStyles);
+const mapAppStateToProps = appState => ({
+  books: appState.books
+});
+
+const mapDispatchToProps = dispatch => ({
+  selectBook: book => dispatch(selectBook(book))
+});
+
+export default connect(
+  mapAppStateToProps,
+  mapDispatchToProps
+)(BookListWithStyles);
