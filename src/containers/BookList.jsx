@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+import Paper from "@material-ui/core/Paper";
+import MenuList from "@material-ui/core/MenuList";
+import MenuItem from "@material-ui/core/MenuItem";
 
 import { selectBook } from "../actions/index";
 
@@ -11,25 +12,28 @@ class BookList extends Component {
     const { classes, books, selectBook } = this.props;
 
     return (
-      <List className={classes.list}>
-        {books.map(book => {
-          return (
-            <ListItem key={book.title} button onClick={() => selectBook(book)}>
-              {book.title}
-            </ListItem>
-          );
-        })}
-      </List>
+      <Paper>
+        <MenuList className={classes.menu}>
+          {books.map(book => {
+            return (
+              <MenuItem
+                key={book.title}
+                button
+                onClick={() => selectBook(book)}
+              >
+                {book.title}
+              </MenuItem>
+            );
+          })}
+        </MenuList>
+      </Paper>
     );
   }
 }
 
 const styles = {
-  list: {
-    width: "100%",
-    maxWidth: 250,
-    color: "white",
-    backgroundColor: "#2196f3"
+  menu: {
+    width: "100%"
   }
 };
 

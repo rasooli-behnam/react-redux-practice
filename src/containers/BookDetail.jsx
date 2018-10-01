@@ -12,12 +12,18 @@ class BookDetail extends Component {
     const _book = book || { title: "Select a book from the list" };
 
     return (
-      <Card className={classes.card}>
+      <Card>
         <CardContent>
-          <Typography className={classes.title} color="textSecondary">
+          <Typography className={classes.title} color="textPrimary">
             {_book.title}
           </Typography>
-          <Typography component="p">Book description goes here...</Typography>
+          <Typography
+            className={classes.description}
+            color="textSecondary"
+            component="p"
+          >
+            Book description goes here...
+          </Typography>
         </CardContent>
       </Card>
     );
@@ -25,11 +31,11 @@ class BookDetail extends Component {
 }
 
 const styles = {
-  card: {
-    width: 350
-  },
   title: {
     marginBottom: 16,
+    fontSize: 24
+  },
+  description: {
     fontSize: 14
   }
 };
