@@ -17,12 +17,15 @@ class BookDetail extends Component {
           <Typography className={classes.title} color="textPrimary">
             {_book.title}
           </Typography>
+          <Typography className={classes.year} color="textSecondary">
+            {_book.year}
+          </Typography>
           <Typography
             className={classes.description}
             color="textSecondary"
             component="p"
           >
-            Book description goes here...
+            {_book.description}
           </Typography>
         </CardContent>
       </Card>
@@ -34,6 +37,10 @@ const styles = {
   title: {
     marginBottom: 16,
     fontSize: 24
+  },
+  year: {
+    marginBottom: 12,
+    fontSize: 18
   },
   description: {
     fontSize: 14
