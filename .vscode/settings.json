@@ -1,0 +1,4 @@
+{
+    "appService.deploySubpath": "build",
+    "appService.defaultWebAppToDeploy": "/subscriptions/6e03042b-1bd9-426c-9a53-a3306cd5e784/resourceGroups/portfolio/providers/Microsoft.Web/sites/react-redux-practice"
+}
